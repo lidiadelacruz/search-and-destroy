@@ -2,10 +2,28 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
+  console.log('linkedlist', linkedlist)
+  let map = new Map()
+
+
+  let current = linkedlist.head
+  console.log('pointer', current)
+  while (current.next) {
+    if (map.has(current.value)) {
+      console.log('map has the value')
+      return true
+    } else {
+      console.log('setting the value', current.value, map)
+      map.set(current.value, 1)
+    }
+    current = current.next
+  }
+
+  return false
 
 };
-
-
+// Map.prototype.has(key)
+// Map.prototype.set(key, value)
 /*
 EXTRA CREDIT:
 
