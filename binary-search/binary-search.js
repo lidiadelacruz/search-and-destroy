@@ -1,8 +1,20 @@
 'use strict';
 
 // Complete this algo
-const binarySearch = (array, target) => {
-	
+const binarySearch = (array, target, begin = 0, end = array.length) => {
+
+	let halfIndex = begin + Math.floor((end - begin) / 2.0)
+	let half = array[halfIndex]
+	if (end < begin) {
+		return false
+	}
+	if (half === target) {
+		return true
+	} else if (half < target) {
+		return binarySearch(array, target, halfIndex + 1, end)
+	} else {
+		return binarySearch(array, target, begin, halfIndex - 1)
+	}
 };
 
 /*
